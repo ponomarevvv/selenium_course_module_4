@@ -1,5 +1,6 @@
-from selenium.webdriver import Firefox, FirefoxProfile, Chrome
-from selenium.webdriver.chrome.options import Options
+from selenium.webdriver import Firefox, Chrome
+from selenium.webdriver.chrome.options import Options as OptionsChrome
+from selenium.webdriver.firefox.options import Options as OptionsFirefox
 import pytest
 
 
@@ -37,12 +38,12 @@ def browser(request):
     user_language = request.config.getoption("--language")
     browser = None
     if browser_name == "firefox":
-        fp = FirefoxProfile()
-        fp.set_preference("intl.accept_languages", user_language)
+        options = OptionsFirefox()
+        options.set_preference("intl.accept_languages", user_language)
         print("\nstart Firefox browser for test...")
-        browser = Firefox(firefox_profile=fp)
+        browser = Firefox(firefox_profile=options.profile)
     elif browser_name == "chrome":
-        oprions = Options()
+        options = OptionsChrome()
         options.add_experimental_option("prefs", {"intl.accept_languages": user_language})
         print("\nstart Chrome browser for test...")
         browser = Chrome(options=options)
