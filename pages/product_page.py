@@ -1,6 +1,7 @@
 from .base_page import BasePage
 from .locators import ProductPageLocators
-from time import sleep
+# from time import sleep
+
 
 class ProductPage(BasePage):
     def add_product_to_basket(self):
@@ -8,7 +9,8 @@ class ProductPage(BasePage):
             *ProductPageLocators.ADDTOBASKET_BUTTON
         )
         add_to_basket_button.click()
-        self.solve_quiz_and_get_code()
+        # self.solve_quiz_and_get_code()
+        self.is_product_added()
 
     def check_product_name(self):
         product_name = self.browser.find_element(
@@ -29,7 +31,17 @@ class ProductPage(BasePage):
         assert product_price == basket_price, "Wrong price"
 
     def is_product_added(self):
-        sleep(1)
+        # sleep(5)
         self.check_product_name()
         self.check_basket_price()
+
+    def should_not_be_success_message(self):
+        assert self.is_not_element_present(
+            *ProductPageLocators.SUCCESS_MESSAGE
+        ), "Success message is presented, but should not be"
+
+    def should_disappear_success_message(self):
+        assert self.is_disappeared(
+            *ProductPageLocators.SUCCESS_MESSAGE
+            ), "Success message did not disappear"
 

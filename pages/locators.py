@@ -18,4 +18,4 @@ class ProductPageLocators():
     PRODUCT_PRICE = (By.CSS_SELECTOR, "p.price_color")
     PRODUCT_ADDED = (By.CSS_SELECTOR, ".alert-success:first-child strong")
     BASKET_PRICE = (By.CSS_SELECTOR, ".alert-info strong")
-
+    SUCCESS_MESSAGE = (By.CSS_SELECTOR, "#messages .alert-success")
