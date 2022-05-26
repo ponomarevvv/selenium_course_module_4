@@ -5,6 +5,8 @@ class BasePageLocators():
     LOGIN_LINK = (By.CSS_SELECTOR, "#login_link")
     LOGIN_LINK_INVALID = (By.CSS_SELECTOR, "#login_link_inc")
     BASKET_LINK = (By.CSS_SELECTOR, ".btn-group > a")
+    USER_ICON = (By.CSS_SELECTOR, ".icon-user")
+    PROFILE_LINK = (By.CSS_SELECTOR, "a[href$=\"/accounts/\"]")
 
 
 class LoginPageLocators():
@@ -12,6 +14,12 @@ class LoginPageLocators():
     LOGIN_PASSWORD = (By.CSS_SELECTOR, "#id_login-password")
     REGISTRATION_USERNAME = (By.CSS_SELECTOR, "#id_registration-email")
     REGISTRATION_PASSWORD = (By.CSS_SELECTOR, "#id_registration-password1")
+    REGISTRATION_PASSWORD_CONFIRMATION = (By.CSS_SELECTOR, "#id_registration-password2")
+    REGISTRATION_SUBMIT_BUTTON = (By.CSS_SELECTOR, "#register_form > button")
+    DELETE_PROFILE_BUTTON = (By.CSS_SELECTOR, "#delete_profile")
+    DELETION_CONFIRMATION_PASSWORD = (By.CSS_SELECTOR, "#id_password")
+    SUBMIT_PROFILE_DELETION_BUTTON = (By.CSS_SELECTOR, ".btn-danger")
+    SUCCESS_ICON = (By.CSS_SELECTOR, ".icon-ok-sign")
 
 
 class ProductPageLocators():
